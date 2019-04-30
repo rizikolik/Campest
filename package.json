@@ -1,0 +1,24 @@
+{
+  "name": "barbecue_turka",
+  "version": "1.0.0",
+  "description": "A project for bootcamp",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.5.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\"camp\"",
+    "\"yelp\"",
+    "\"barbecue\""
+  ],
+  "author": "Yunus ture",
+  "license": "ISC"
+}
