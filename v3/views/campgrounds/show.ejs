@@ -21,10 +21,12 @@
                    <p><i>Sended By:</i> <strong><%=campground.author.username%></strong></p>
                    
                     <div class="text-left">
-                    <a href="/campgrounds/<%=campground._id%>/edit" class=" btn btn-warning">Edit Campground</a> 
-                    <form id="delete" action="/campgrounds/<%=campground._id%>?_method=DELETE"  method="POST">
-                        <button class="btn btn btn-danger">Delete!</button>
-                    </form>
+                    <%if(currentUser&&campground.author.id.equals(currentUser._id)){%>
+                        <a href="/campgrounds/<%=campground._id%>/edit" class=" btn btn-warning">Edit Campground</a> 
+                        <form id="delete" action="/campgrounds/<%=campground._id%>/?_method=DELETE"  method="POST">
+                            <button class="btn btn btn-danger">Delete!</button>
+                        </form>
+                    <% } %> 
                     
                 </div>
                 

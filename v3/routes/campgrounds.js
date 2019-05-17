@@ -69,28 +69,29 @@ router.get("/:id", function(req, res){
 });
 
 //EDİT CAMPGROUNDS
-router.get("/:id/edit",(req,res)=>{
-    Campground.findById(req.params.id,(err,foundedcampground)=>{
-        if(err){
-            res.redirect("campgrounds");
-        }else{
-           res.render("campgrounds/edit",{campground:foundedcampground}); 
-        }
-    });
-    
+router.get("/:id/edit",checkUserAuthorization,(req,res)=>{
+   Campground.findById(req.params.id,(err,foundedcampground)=>{
+    res.render("campgrounds/edit",{campground:foundedcampground});
+   })
+ 
 });
 //update campground
-router.put("/:id",(req,res)=>{
-    Campground.findByIdAndUpdate(req.params.id,req.body.campground,(err,updatedCampground)=>{
+router.put("/:id",checkUserAuthorization,(req,res)=>{
+    if(req.isAuthenticated()){
+       Campground.findByIdAndUpdate(req.params.id,req.body.campground,(err,updatedCampground)=>{
         if(err){
             res.redirect("/campgrounds/edit");
         }else{
             res.redirect("/campgrounds/"+updatedCampground._id)
         }
-    });
+    });  
+    }else{
+        res.send("you need to log ın")
+    }
+   
 });
 
-router.delete("/:id",(req,res)=>{
+router.delete("/:id",checkUserAuthorization,(req,res)=>{
    Campground.findByIdAndRemove(req.params.id,(err)=>{
         if(err){
             res.redirect("/campgrounds/show");
@@ -106,5 +107,30 @@ function isLoggedIn(req,res,next){
     res.redirect("/login")
     
 };
+function checkUserAuthorization(req,res,next){
+    if(req.isAuthenticated()){
+      
+    Campground.findById(req.params.id,(err,foundedcampground)=>{
+        if(err){
+            res.redirect("back");
+        }else{
+            //IF USER AUTHENTİCATED?
+            if(foundedcampground.author.id.equals(req.user._id)){
+                next();
+            }else{
+            
+                res.redirect("back")
+            }
+            
+            
+        }
+    });  
+    }else{
+        res.redirect("/login")
+    }
+    
+        
+ 
+}
 
 module.exports=router;
