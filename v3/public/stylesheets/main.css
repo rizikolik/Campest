@@ -1,4 +1,13 @@
-
+:root{
+width:100%;
+height:100vh;
+    
+    
+}
+    #jumbotron{
+    color:white;
+    background-image: url("https://images.unsplash.com/photo-1465695954255-a262b0f57b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80")
+}
 .thumbnail img{
     width:100%;
 }
@@ -9,6 +18,12 @@
 .thumbnail caption{
     padding:1em;
 }
+#log-sign-in, #reg, #log{
+  
+    width:30em;
+}
+
+
 #delete{
     display:inline;
 }
@@ -32,3 +47,4 @@
 .fa-twitter{
     color: rgb(0 ,119,181);
 }
+

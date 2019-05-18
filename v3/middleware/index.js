@@ -28,6 +28,7 @@ middlewareObj.checkUserAuthorizationOnComment=function(req,res,next){
       
     Comment.findById(req.params.commentId,(err,foundedcomment)=>{
         if(err){
+            console.log(err)
             res.redirect("back");
         }else{
             //IF USER AUTHENTİCATED?

@@ -6,7 +6,7 @@ const express = require("express"),
 
 // Root Route
 router.get("/", function(req, res){
-    req.flash("success","Welcome!")
+    
     res.render("landing");
 });
              /*==================
@@ -22,8 +22,9 @@ router.post("/register",(req,res)=>{
     let newuser= new User({username:req.body.username});
     User.register(newuser,req.body.password,(err,user)=>{
         if(err){
-            req.flash("error",err)
-             return res.render("register")
+            
+            
+             return res.render("register",{error:err.message})
         }
         passport.authenticate("local")(req,res,()=>{
             req.flash("success","Welcome To Our Website " + user.username)

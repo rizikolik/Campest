@@ -30,6 +30,7 @@ app.use(flash());
 /*=================
 PASSPORT CONFİG
 =================*/
+app.locals.moment = require('moment');
 app.use(require("express-session")({
     secret:"zeynep",
     resave :false,

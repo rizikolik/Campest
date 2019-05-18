@@ -1,8 +1,8 @@
 <% include ../partials/header %>
  <div class="container">
-     <header class="jumbotron">
-         <div class="container">
-             <h1>Welcome To YelpCamp!</h1>
+     <header id="jumbotron" class="jumbotron">
+         <div class="container text-center">
+             <h1>Welcome To Campest!</h1>
              <p>View our hand-picked campgrounds from all over the world</p>
              <p>
                 <a class="btn btn-primary btn-large" href="/campgrounds/new">Add New Campground <i class="fas fa-campground"></i></a>
@@ -19,7 +19,7 @@
                        <h4><%= campground.name %></h4>
                    </div>
                    <p>
-                       <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">Learn More <i class="fas fa-info"></i></a>
+                       <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary"> <i class="fas fa-info"></i> Learn More</a>
                    </p>
                 </div>
             </div>

@@ -16,7 +16,7 @@ router.get("/", function(req, res){
            req.flash("error","Something Went Wrong")
            console.log(err);
        } else {
-           
+         
           res.render("campgrounds/index",{campgrounds:allCampgrounds});
        }
     });
@@ -30,10 +30,11 @@ router.post("/",middleware.isLoggedIn,function(req, res){
       get data from form and add to campgrounds array
       =================================================*/
     var name = req.body.name;
+    var price= req.body.price;
     var image = req.body.image;
     var desc = req.body.description;
     var author={id:req.user._id,username:req.user.username};
-    var newCampground = {name: name, image: image, description: desc,author:author};
+    var newCampground = {name: name,price:price, image: image, description: desc,author:author};
       /*=======================================
      Create a new campground and save to DB
      =========================================*/

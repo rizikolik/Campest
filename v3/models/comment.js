@@ -1,6 +1,9 @@
 let  mongoose=require("mongoose");
 const commentSchema = new mongoose.Schema({
     text:String,
+    createdTime: 
+   { type: Date, 
+   default: Date.now },
     author:{
         id:{
             type:mongoose.Schema.Types.ObjectId,
