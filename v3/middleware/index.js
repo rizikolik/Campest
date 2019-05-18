@@ -6,6 +6,7 @@ const middlewareObj={ };
       
     Campground.findById(req.params.id,(err,foundedcampground)=>{
         if(err){
+            
             res.redirect("back");
         }else{
             //IF USER AUTHENTİCATED?
@@ -17,6 +18,7 @@ const middlewareObj={ };
         }
     });  
     }else{
+        req.flash("error","You need to be Logged In to do that!")
         res.redirect("/login")
     }
    };
@@ -32,11 +34,13 @@ middlewareObj.checkUserAuthorizationOnComment=function(req,res,next){
             if(foundedcomment.author.id.equals(req.user._id)){
                 next();
             }else{
+                
                res.redirect("back")
             }
         }
     });  
     }else{
+        req.flash("error","You need to be Logged In to do that!")
         res.redirect("/login")
     }
 };
@@ -44,6 +48,7 @@ middlewareObj.isLoggedIn=function(req,res,next){
     if(req.isAuthenticated()){ 
         return next();
     }
+    req.flash("error","You need to be Logged In to do that!")
     res.redirect("/login")
     
 };

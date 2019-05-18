@@ -6,6 +6,7 @@ const express = require("express"),
 
 // Root Route
 router.get("/", function(req, res){
+    req.flash("success","Welcome!")
     res.render("landing");
 });
              /*==================
@@ -21,10 +22,11 @@ router.post("/register",(req,res)=>{
     let newuser= new User({username:req.body.username});
     User.register(newuser,req.body.password,(err,user)=>{
         if(err){
-            console.log(err);
+            req.flash("error",err)
              return res.render("register")
         }
         passport.authenticate("local")(req,res,()=>{
+            req.flash("success","Welcome To Our Website " + user.username)
             res.redirect("/campgrounds");
         })
     });
@@ -35,23 +37,19 @@ router.get("/login",(req,res)=>{
 });
 //4)login Logic
 router.post("/login",passport.authenticate("local",{
+    
     successRedirect:"/campgrounds",
+    
     failureRedirect:"/login"
 }));
 
 //5) Log Out
 router.get("/logout",(req,res)=>{
+    req.flash("success","You Logged Out!")
     req.logout();
     res.redirect("/campgrounds")
 });
-//6) Middleware
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login")
-    
-};
+
 
 module.exports=router;
 
