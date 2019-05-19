@@ -1,0 +1,51 @@
+:root{
+width:100%;
+height:100vh;
+    
+    
+}
+    #jumbotron{
+    color:white;
+    background-position: bottom;
+    background-image: url("https://images.unsplash.com/photo-1492486169476-8c5dafd9539f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=1534&q=80")
+}
+.thumbnail img{
+    width:100%;
+}
+
+.thumbnail{
+    padding:0;
+}
+.thumbnail caption{
+    padding:1em;
+}
+#log-sign-in, #reg, #log{
+  
+    width:30em;
+}
+
+
+#delete{
+    display:inline;
+}
+#commentDelete{
+    display: inline;
+}
+#indexpage_images{
+    height:300px;
+}
+.foot-icon{
+    padding:0.5em;
+}
+.fa-linkedin-in{
+    color:white;
+    background-color: rgb(0 ,119,181);
+}
+.fa-github{
+    color:black;
+    
+}
+.fa-twitter{
+    color: rgb(0 ,119,181);
+}
+
