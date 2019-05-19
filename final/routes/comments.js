@@ -5,7 +5,9 @@ const express     = require("express"),
       middleware  =require("../middleware")
                     /*======================
                       //COMMENT ROUTES
- //new comment                   =====================*/
+
+ //new comment  =====================*/
+ 
 router.get("/new",middleware.isLoggedIn,(req,res)=>{
     Campground.findById(req.params.id,(err,campground)=>{
         if(err){
