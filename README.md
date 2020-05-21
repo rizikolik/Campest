@@ -1,6 +1,6 @@
-# Welcome TO Campest!
+# Welcome To Campest!
 
-## This project developed for the purpose of shoving camp zones around the user .
+## This project developed for the purpose of shoving camp zones.
 
 ### Technologies :
 

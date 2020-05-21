@@ -1,7 +1,7 @@
 {
-  "name": "barbecue_turka",
+  "name": "Campest",
   "version": "1.0.0",
-  "description": "A project for bootcamp",
+  "description": "Camp grouns shoving app",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -22,9 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "\"camp\"",
-    "\"yelp\"",
-    "\"barbecue\""
+    "\"camp\""
   ],
   "author": "Yunus ture",
   "license": "ISC"
